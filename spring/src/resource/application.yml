@@ -1,0 +1,18 @@
+server:
+  port: 1111
+  servlet-path: /
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    serviceUrl:
+      defaualtZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+spring:
+  freemarker:
+    #是否优先从文件系统加载template，以支持热加载，默认为true，eureka管理界面开启应关闭此选项
+    prefer-file-system-access: false
+
