@@ -1,0 +1,15 @@
+server:
+  port: 1113
+
+eureka:
+  instance:
+    hostname: peer1
+    instance-id: eurekaRegister:${spring.application.name}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaRegister:zhangshuai@127.0.0.1:1111/eureka
+
+spring:
+  application:
+    name: eureka-server
+
