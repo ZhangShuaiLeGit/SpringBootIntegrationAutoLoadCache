@@ -5,11 +5,31 @@ eureka:
   instance:
     hostname: localhost
     prefer-ip-address: true
+    # [服务续约]-服务续约任务调用的间隔时间，默认为30s
+    lease-renewal-interval-in-seconds: 30
+    # [服务续约]-心跳检查之服务失效时间，默认为90s，这个配置一般为lease-renewal-interval-in-seconds的三倍！
+    lease-expiration-duration-in-seconds: 90
+#    metadataMap:
+#      zone: default
+    # 可配置绝对路径
+    status-page-url-path: ${management.context-path}/${endpoints.info.path}
+    health-check-url-path: ${management.context-path}/${endpoints.health.path}
   client:
     fetch-registry: true
     register-with-eureka: true
+    healthcheck:
+      enable: true
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    # [服务续约]-当前服务实例更新注册服务缓存清单的更新间隔时间，默认为30s，一般和lease-renewal-interval-in-seconds保持一致！
+    registry-fetch-interval-seconds: 30
+    # 只能属于一个region,不配置默认
+#    region: default
+#     可设置多个，与region是一对多关系，逗号分隔
+#    availability-zones: default
+  server:
+    # 是否开启保护机制
+    enable-self-preservation: false
 
 spring:
   freemarker:
@@ -24,3 +44,14 @@ security:
     name: eurekaRegister
     password: zhangshuai
     role: USER
+
+# 设置admin
+management:
+  context-path: /hello
+
+# 处于安全考虑
+endpoints:
+  info:
+    path: /appinfo
+  health:
+    path: /checkHealth
