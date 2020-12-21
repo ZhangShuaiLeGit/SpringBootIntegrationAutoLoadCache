@@ -1,0 +1,15 @@
+server:
+  port: 1114
+
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: eurekaRegister:${spring.application.name}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaRegister:zhangshuai@peer2:1112/eureka,http://eurekaRegister:zhangshuai@peer1:1113/eureka,http://localhost:1114/eureka
+
+spring:
+  application:
+    name: ribbon-consumer
+
