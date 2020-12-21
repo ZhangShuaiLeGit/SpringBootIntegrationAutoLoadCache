@@ -7,7 +7,7 @@ eureka:
     instance-id: eurekaRegister:${spring.application.name}:${server.port}
   client:
     serviceUrl:
-      defaultZone: http://eurekaRegister:zhangshuai@127.0.0.1:1111/eureka
+      defaultZone: http://eurekaRegister:zhangshuai@peer1:1113/eureka
 
 spring:
   application:
