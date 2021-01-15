@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class BeanFactory {
 
@@ -33,8 +35,8 @@ public class BeanFactory {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String Index() {
-        ServiceInstance instance = client.getLocalServiceInstance();
-        log.info("/hello, host:{}, serverId:{}", instance.getHost(), instance.getServiceId());
+        List<String> services = client.getServices();
+        log.info("/hello, host:{}, serverId:{}", services.get(0), services.get(0));
         return "hello client";
     }
 }

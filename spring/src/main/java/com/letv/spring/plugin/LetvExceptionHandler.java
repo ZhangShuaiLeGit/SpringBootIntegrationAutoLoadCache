@@ -1,6 +1,5 @@
 package com.letv.spring.plugin;
 
-import com.letv.spring.util.MessageUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +24,7 @@ public class LetvExceptionHandler {
     public CommonError handleException(Exception e) {
         LOGGER.error("handleException: ", e);
         String errorCode = "-100";
-        String message = MessageUtils.getMessage("SYSTEM_ERROR");
+        String message = "SYSTEM_ERROR";
         if (StringUtils.isBlank(message)) {
             message = "服务异常请重试! ";
         }

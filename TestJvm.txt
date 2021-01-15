@@ -1,0 +1,154 @@
+Classfile /Users/leeco/IdeaProjects/SpringBootIntegration/spring/target/classes/com/letv/jvm/controller/TestJvm.class
+  Last modified 2021-1-8; size 1006 bytes
+  MD5 checksum 91c1b5c1e754b6fbc3e5830703a51e40
+  Compiled from "TestJvm.java"
+public class com.letv.jvm.controller.TestJvm
+  minor version: 0
+  major version: 51
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #14.#38        // java/lang/Object."<init>":()V
+   #2 = Class              #39            // java/util/ArrayList
+   #3 = Methodref          #2.#38         // java/util/ArrayList."<init>":()V
+   #4 = Integer            100000000
+   #5 = String             #40            //
+   #6 = Class              #41            // java/lang/StringBuilder
+   #7 = Methodref          #6.#38         // java/lang/StringBuilder."<init>":()V
+   #8 = Methodref          #6.#42         // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   #9 = Methodref          #43.#44        // java/util/UUID.randomUUID:()Ljava/util/UUID;
+  #10 = Methodref          #43.#45        // java/util/UUID.toString:()Ljava/lang/String;
+  #11 = Methodref          #6.#45         // java/lang/StringBuilder.toString:()Ljava/lang/String;
+  #12 = InterfaceMethodref #46.#47        // java/util/List.add:(Ljava/lang/Object;)Z
+  #13 = Class              #48            // com/letv/jvm/controller/TestJvm
+  #14 = Class              #49            // java/lang/Object
+  #15 = Utf8               <init>
+  #16 = Utf8               ()V
+  #17 = Utf8               Code
+  #18 = Utf8               LineNumberTable
+  #19 = Utf8               LocalVariableTable
+  #20 = Utf8               this
+  #21 = Utf8               Lcom/letv/jvm/controller/TestJvm;
+  #22 = Utf8               main
+  #23 = Utf8               ([Ljava/lang/String;)V
+  #24 = Utf8               j
+  #25 = Utf8               I
+  #26 = Utf8               str
+  #27 = Utf8               Ljava/lang/String;
+  #28 = Utf8               i
+  #29 = Utf8               args
+  #30 = Utf8               [Ljava/lang/String;
+  #31 = Utf8               list
+  #32 = Utf8               Ljava/util/List;
+  #33 = Utf8               StackMapTable
+  #34 = Class              #50            // java/util/List
+  #35 = Class              #51            // java/lang/String
+  #36 = Utf8               SourceFile
+  #37 = Utf8               TestJvm.java
+  #38 = NameAndType        #15:#16        // "<init>":()V
+  #39 = Utf8               java/util/ArrayList
+  #40 = Utf8
+  #41 = Utf8               java/lang/StringBuilder
+  #42 = NameAndType        #52:#53        // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #43 = Class              #54            // java/util/UUID
+  #44 = NameAndType        #55:#56        // randomUUID:()Ljava/util/UUID;
+  #45 = NameAndType        #57:#58        // toString:()Ljava/lang/String;
+  #46 = Class              #50            // java/util/List
+  #47 = NameAndType        #59:#60        // add:(Ljava/lang/Object;)Z
+  #48 = Utf8               com/letv/jvm/controller/TestJvm
+  #49 = Utf8               java/lang/Object
+  #50 = Utf8               java/util/List
+  #51 = Utf8               java/lang/String
+  #52 = Utf8               append
+  #53 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #54 = Utf8               java/util/UUID
+  #55 = Utf8               randomUUID
+  #56 = Utf8               ()Ljava/util/UUID;
+  #57 = Utf8               toString
+  #58 = Utf8               ()Ljava/lang/String;
+  #59 = Utf8               add
+  #60 = Utf8               (Ljava/lang/Object;)Z
+{
+  public com.letv.jvm.controller.TestJvm();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/letv/jvm/controller/TestJvm;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=5, args_size=1
+         0: new           #2                  // class java/util/ArrayList
+         3: dup
+         4: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+         7: astore_1
+         8: iconst_0
+         9: istore_2
+        10: iload_2
+        11: ldc           #4                  // int 100000000
+        13: if_icmpge     73
+        16: ldc           #5                  // String
+        18: astore_3
+        19: iconst_0
+        20: istore        4
+        22: iload         4
+        24: bipush        100
+        26: if_icmpge     59
+        29: new           #6                  // class java/lang/StringBuilder
+        32: dup
+        33: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+        36: aload_3
+        37: invokevirtual #8                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        40: invokestatic  #9                  // Method java/util/UUID.randomUUID:()Ljava/util/UUID;
+        43: invokevirtual #10                 // Method java/util/UUID.toString:()Ljava/lang/String;
+        46: invokevirtual #8                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        49: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        52: astore_3
+        53: iinc          4, 1
+        56: goto          22
+        59: aload_1
+        60: aload_3
+        61: invokeinterface #12,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        66: pop
+        67: iinc          2, 1
+        70: goto          10
+        73: return
+      LineNumberTable:
+        line 11: 0
+        line 12: 8
+        line 13: 16
+        line 14: 19
+        line 15: 29
+        line 14: 53
+        line 17: 59
+        line 12: 67
+        line 19: 73
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           22      37     4     j   I
+           19      48     3   str   Ljava/lang/String;
+           10      63     2     i   I
+            0      74     0  args   [Ljava/lang/String;
+            8      66     1  list   Ljava/util/List;
+      StackMapTable: number_of_entries = 4
+        frame_type = 253 /* append */
+          offset_delta = 10
+          locals = [ class java/util/List, int ]
+        frame_type = 253 /* append */
+          offset_delta = 11
+          locals = [ class java/lang/String, int ]
+        frame_type = 250 /* chop */
+          offset_delta = 36
+        frame_type = 249 /* chop */
+          offset_delta = 13
+}
+SourceFile: "TestJvm.java"

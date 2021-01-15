@@ -11,12 +11,9 @@ eureka:
     lease-expiration-duration-in-seconds: 90
 #    metadataMap:
 #      zone: default
-    # 可配置绝对路径
-    status-page-url-path: ${management.context-path}/${endpoints.info.path}
-    health-check-url-path: ${management.context-path}/${endpoints.health.path}
   client:
-    fetch-registry: true
-    register-with-eureka: true
+    fetch-registry: false
+    register-with-eureka: false
     healthcheck:
       enable: true
     serviceUrl:
@@ -44,14 +41,3 @@ security:
     name: eurekaRegister
     password: zhangshuai
     role: USER
-
-# 设置admin
-management:
-  context-path: /hello
-
-# 处于安全考虑
-endpoints:
-  info:
-    path: /appinfo
-  health:
-    path: /checkHealth

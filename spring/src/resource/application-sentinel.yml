@@ -1,0 +1,11 @@
+# sentinel dashboard
+spring:
+  application:
+    name: alibaba-sentinel-rate-limiting
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 10.122.148.133:8888
+
+server:
+  port: 1115
