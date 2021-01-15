@@ -41,3 +41,15 @@ security:
     name: eurekaRegister
     password: zhangshuai
     role: USER
+
+app:
+  id: sentinel-apollo
+
+apollo:
+  bootstrap:
+    enabled: true
+    # 该配置文件指定多namespaces 或通过 @EnabledApolloConfig({"application","operation-config"}) 激活
+    namespaces: application-sentinel-apollo
+  cluster: default
+  meta: ${APOLLO_META:http://dev.config.apollo.letv.com}
+  cacheDir: /letv/app/mas/caller/apollo-cache

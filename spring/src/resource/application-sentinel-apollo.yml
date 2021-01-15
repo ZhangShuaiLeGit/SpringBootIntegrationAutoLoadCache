@@ -1,0 +1,43 @@
+# sentinel dashboard
+spring:
+  application:
+    name: sentinel-datasource-apollo
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 10.122.148.133:8888
+      log:
+#        dir: ./logs # 默认值${home}/logs/csp/
+        switch-pid: true # 日志带上线程id
+      datasource:
+        flow:
+          apollo:
+            namespaceName: application-sentinel-apollo
+            flowRulesKey: flowRules
+            rule-type: flow
+        degrade: # 熔断降级规则
+          apollo:
+            namespaceName: application-sentinel-apollo
+            flowRulesKey: degradeRules
+            rule-type: degrade
+        authority: # 授权规则
+          apollo:
+            namespaceName: application-sentinel-apollo
+            flowRulesKey: authorityRules
+            rule-type: authority
+        system: # 系统规则
+          apollo:
+            namespaceName: application-sentinel-apollo
+            flowRulesKey: systemRules
+            rule-type: system
+        param-flow: # 热点规则
+          apollo:
+            namespaceName: application-sentinel-apollo
+            flowRulesKey: paramFlowRules
+            rule-type: param-flow
+
+server:
+  port: 1116
+
+
+
