@@ -1,4 +1,4 @@
-package com.letv.spring.controller;
+package com.letv.eureka.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

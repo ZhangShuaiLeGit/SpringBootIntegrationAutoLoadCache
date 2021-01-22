@@ -1,4 +1,4 @@
-package com.letv.spring;
+package com.letv.eureka;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 

@@ -1,4 +1,4 @@
-package com.letv.spring.plugin;
+package com.letv.eureka.plugin;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;

@@ -1,6 +1,4 @@
-package com.letv.spring;
-
-import java.io.Serializable;
+package com.letv.eureka;
 
 /**
  * 数据基类

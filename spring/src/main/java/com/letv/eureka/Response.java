@@ -1,6 +1,5 @@
-package com.letv.spring;
+package com.letv.eureka;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Map;
 
 /**

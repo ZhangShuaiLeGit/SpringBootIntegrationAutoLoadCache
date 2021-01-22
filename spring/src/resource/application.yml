@@ -32,15 +32,14 @@ spring:
   freemarker:
     #是否优先从文件系统加载template，以支持热加载，默认为true，eureka管理界面开启应关闭此选项
     prefer-file-system-access: false
-
-security:
-  basic:
-    # 启用基本身份认证
-    enabled: false
-  user:
-    name: eurekaRegister
-    password: zhangshuai
-    role: USER
+  security:
+    basic:
+      # 启用基本身份认证
+      enabled: false
+    user:
+      name: eurekaRegister
+      password: zhangshuai
+      roles: USER
 
 app:
   id: sentinel-apollo

@@ -1,4 +1,4 @@
-package com.letv.spring.util;
+package com.letv.eureka.util;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParser;

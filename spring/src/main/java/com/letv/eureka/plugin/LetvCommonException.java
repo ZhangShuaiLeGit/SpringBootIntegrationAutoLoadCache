@@ -1,4 +1,4 @@
-package com.letv.spring.plugin;
+package com.letv.eureka.plugin;
 
 public class LetvCommonException extends RuntimeException {
     private String errorCode = "";

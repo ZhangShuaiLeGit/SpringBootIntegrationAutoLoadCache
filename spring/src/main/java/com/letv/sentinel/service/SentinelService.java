@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SentinelService {
-    static int count = 1;
+    private static int count = 1;
 
     @SentinelResource(value = "doSomeThing", entryType = EntryType.IN,
             blockHandler = "exceptionHandler", fallback = "fallbackHandler")
