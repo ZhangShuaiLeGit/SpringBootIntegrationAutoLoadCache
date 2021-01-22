@@ -1,15 +1,29 @@
 server:
-  port: 1112
+  port: 1113
 
 eureka:
   instance:
     hostname: peer2
-    instance-id: eurekaRegister:${spring.application.name}:${server.port}
+    instance-id: 127.0.0.2:${server.port}
+    metadata-map:
+      # [HA-P配置]-当前服务实例的zone
+      zone: ${SERVER_ZONE:bj-2}
+      #config bus refresh index
+      index: ${spring.application.index:127.0.0.1}
   client:
+    # [HA-P配置]-当前服务实例的region
+    region: ${SERVER_REGION:cn-bj}
+    # [HA-P配置]-开启当前服务实例优先发现同zone的注册中心，默认为true
+    prefer-same-zone-eureka: true
+    # [HA配置]-可用zone内注册中心地址列表
+    availability-zones:
+      cn-bj: ${eureka.instance.metadata-map.zone},bj-1
     serviceUrl:
-      defaultZone: http://eurekaRegister:zhangshuai@peer1:1113/eureka
+      bj-2: http://eurekaRegister:zhangshuai@peer1:1112/eureka
+#      defaultZone: http://eurekaRegister:zhangshuai@peer2:1112/eureka
+      defaultZone: ''
 
 spring:
   application:
-    name: eureka-server
+    name: eureka-server2
 

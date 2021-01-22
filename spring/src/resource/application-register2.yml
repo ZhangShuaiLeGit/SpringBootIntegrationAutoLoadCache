@@ -1,10 +1,10 @@
 server:
-  port: 1112
+  port: 1118
 
 eureka:
   instance:
-    hostname: peer1
-    instance-id: 127.0.0.1:${server.port}
+    hostname: register2
+    instance-id: 127.0.0.4:${server.port}
     metadata-map:
       # [HA-P配置]-当前服务实例的zone
       zone: ${SERVER_ZONE:bj-1}
@@ -19,7 +19,7 @@ eureka:
     availability-zones:
       cn-bj: ${eureka.instance.metadata-map.zone},bj-2
     serviceUrl:
-      bj-1: http://eurekaRegister:zhangshuai@peer2:1113/eureka
+      bj-1: http://eurekaRegister:zhangshuai@peer1:1112/eureka
 #      defaultZone: http://eurekaRegister:zhangshuai@peer2:1112/eureka
       defaultZone: ''
 

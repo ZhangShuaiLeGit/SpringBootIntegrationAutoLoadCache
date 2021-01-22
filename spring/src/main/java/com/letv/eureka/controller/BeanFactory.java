@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+//@RequestMapping("/api/server")
 public class BeanFactory {
 
     @RequestMapping("/test")
@@ -36,6 +37,6 @@ public class BeanFactory {
     public String Index() {
         List<String> services = client.getServices();
         log.info("/hello, host:{}, serverId:{}", services.get(0), services.get(0));
-        return "hello client";
+        return "我是" + System.getProperty("spring.profiles.active");
     }
 }

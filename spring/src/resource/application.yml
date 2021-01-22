@@ -6,20 +6,20 @@ eureka:
     hostname: localhost
     prefer-ip-address: true
     # [服务续约]-服务续约任务调用的间隔时间，默认为30s
-    lease-renewal-interval-in-seconds: 30
+    lease-renewal-interval-in-seconds: 5
     # [服务续约]-心跳检查之服务失效时间，默认为90s，这个配置一般为lease-renewal-interval-in-seconds的三倍！
-    lease-expiration-duration-in-seconds: 90
+    lease-expiration-duration-in-seconds: 15
 #    metadataMap:
 #      zone: default
   client:
-    fetch-registry: false
-    register-with-eureka: false
+    fetch-registry: true
+    register-with-eureka: true
     healthcheck:
       enable: true
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
     # [服务续约]-当前服务实例更新注册服务缓存清单的更新间隔时间，默认为30s，一般和lease-renewal-interval-in-seconds保持一致！
-    registry-fetch-interval-seconds: 30
+    registry-fetch-interval-seconds: 10
     # 只能属于一个region,不配置默认
 #    region: default
 #     可设置多个，与region是一对多关系，逗号分隔
@@ -33,9 +33,9 @@ spring:
     #是否优先从文件系统加载template，以支持热加载，默认为true，eureka管理界面开启应关闭此选项
     prefer-file-system-access: false
   security:
-    basic:
-      # 启用基本身份认证
-      enabled: false
+#    basic:
+      # 启用基本身份认证:高版本已丢弃
+#      enabled: true
     user:
       name: eurekaRegister
       password: zhangshuai
