@@ -121,6 +121,14 @@ ribbon:
   # 最大重选 Server 次数，前提OkToRetryOnAllOperations＝true（最大总重试次数 = 最大本地重试次数 * 最大重选 Server 次数；总调用次数 = （最大本地重试次数+1）* 最大重选 Server 次数）
   MaxAutoRetriesNextServer: 1
 
+#  com.netflix.loadbalancer.RandomRule：从提供服务的实例中以随机的方式；
+#  com.netflix.loadbalancer.RoundRobinRule：以线性轮询的方式，就是维护一个计数器，从提供服务的实例中按顺序选取，第一次选第一个，第二次选第二个，以此类推，到最后一个以后再从头来过；
+#  com.netflix.loadbalancer.RetryRule：在RoundRobinRule的基础上添加重试机制，即在指定的重试时间内，反复使用线性轮询策略来选择可用实例；
+#  com.netflix.loadbalancer.WeightedResponseTimeRule：对RoundRobinRule的扩展，响应速度越快的实例选择权重越大，越容易被选择；
+#  com.netflix.loadbalancer.BestAvailableRule：选择并发较小的实例；
+#  com.netflix.loadbalancer.AvailabilityFilteringRule：先过滤掉故障实例，再选择并发较小的实例；
+#  com.netflix.loadbalancer.ZoneAwareLoadBalancer：采用双重过滤，同时过滤不是同一区域的实例和故障实例，选择并发较小的实例。
+
 # 根据上游的serviceid来指定其ribbon配置
 eureka-server1:
   ribbon:
@@ -128,7 +136,7 @@ eureka-server1:
     ConnectTimeout: 200
     # 同 Ribbon 全局配置，service 配置优先
     ReadTimeout: 1500
-    # 负载均衡策略
+    # 负载均衡策略NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #修改负载均衡算法
     NFLoadBalancerRuleClassName: com.letv.router.rule.MetadataWeightedRule
     # 同 Ribbon 全局配置，service 配置优先
     OkToRetryOnAllOperations: false
@@ -145,7 +153,7 @@ eureka-clinet1:
     ConnectTimeout: 200
     # 同 Ribbon 全局配置，service 配置优先
     ReadTimeout: 1500
-    # 负载均衡策略
+    # 负载均衡策略NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #修改负载均衡算法
     NFLoadBalancerRuleClassName: com.letv.router.rule.MetadataWeightedRule
     # 同 Ribbon 全局配置，service 配置优先
     OkToRetryOnAllOperations: false
@@ -162,7 +170,7 @@ eureka-server2:
     ConnectTimeout: 200
     # 同 Ribbon 全局配置，service 配置优先
     ReadTimeout: 1500
-    # 负载均衡策略
+    # 负载均衡策略NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #修改负载均衡算法
     NFLoadBalancerRuleClassName: com.letv.router.rule.MetadataWeightedRule
     # 同 Ribbon 全局配置，service 配置优先
     OkToRetryOnAllOperations: false

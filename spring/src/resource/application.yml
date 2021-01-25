@@ -17,7 +17,7 @@ eureka:
     healthcheck:
       enable: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
     # [服务续约]-当前服务实例更新注册服务缓存清单的更新间隔时间，默认为30s，一般和lease-renewal-interval-in-seconds保持一致！
     registry-fetch-interval-seconds: 10
     # 只能属于一个region,不配置默认
@@ -34,12 +34,11 @@ spring:
     prefer-file-system-access: false
   security:
 #    basic:
-      # 启用基本身份认证:高版本已丢弃
+      #启用基本身份认证:高版本已丢弃
 #      enabled: true
     user:
       name: eurekaRegister
       password: zhangshuai
-      roles: USER
 
 app:
   id: sentinel-apollo

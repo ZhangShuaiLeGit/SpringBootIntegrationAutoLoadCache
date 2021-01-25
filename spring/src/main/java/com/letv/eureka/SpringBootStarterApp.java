@@ -9,8 +9,8 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-@EnableZuulProxy
-//@EnableEurekaServer
+//@EnableZuulProxy
+@EnableEurekaServer
 @EnableDiscoveryClient
 @SpringBootApplication
 public class SpringBootStarterApp {

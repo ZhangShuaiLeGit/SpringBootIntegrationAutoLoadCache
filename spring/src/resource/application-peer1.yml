@@ -17,11 +17,11 @@ eureka:
     prefer-same-zone-eureka: true
     # [HA配置]-可用zone内注册中心地址列表
     availability-zones:
-      cn-bj: ${eureka.instance.metadata-map.zone},bj-2
+      cn-bj: ${eureka.instance.metadata-map.zone:bj-1}
     serviceUrl:
-      bj-1: http://eurekaRegister:zhangshuai@peer2:1113/eureka
+      bj-1: http://eurekaRegister:zhangshuai@peer1:1112/eureka/,http://eurekaRegister:zhangshuai@peer2:1113/eureka/
 #      defaultZone: http://eurekaRegister:zhangshuai@peer2:1112/eureka
-      defaultZone: ''
+#      defaultZone: http://eurekaRegister:zhangshuai@peer1:1112/eureka/,http://eurekaRegister:zhangshuai@peer2:1113/eureka/
 
 spring:
   application:

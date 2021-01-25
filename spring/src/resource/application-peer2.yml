@@ -7,7 +7,7 @@ eureka:
     instance-id: 127.0.0.2:${server.port}
     metadata-map:
       # [HA-P配置]-当前服务实例的zone
-      zone: ${SERVER_ZONE:bj-2}
+      zone: ${SERVER_ZONE:bj-1}
       #config bus refresh index
       index: ${spring.application.index:127.0.0.1}
   client:
@@ -17,11 +17,11 @@ eureka:
     prefer-same-zone-eureka: true
     # [HA配置]-可用zone内注册中心地址列表
     availability-zones:
-      cn-bj: ${eureka.instance.metadata-map.zone},bj-1
+      cn-bj: ${eureka.instance.metadata-map.zone:bj-1}
     serviceUrl:
-      bj-2: http://eurekaRegister:zhangshuai@peer1:1112/eureka
+      bj-1: http://eurekaRegister:zhangshuai@peer1:1112/eureka/,http://eurekaRegister:zhangshuai@peer2:1113/eureka/
 #      defaultZone: http://eurekaRegister:zhangshuai@peer2:1112/eureka
-      defaultZone: ''
+#      defaultZone: http://eurekaRegister:zhangshuai@peer1:1112/eureka/,http://eurekaRegister:zhangshuai@peer2:1113/eureka/
 
 spring:
   application:
