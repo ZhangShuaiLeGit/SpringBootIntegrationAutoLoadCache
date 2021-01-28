@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 public class SentinelService {
     private static int count = 1;
 
+    /**
+     * exceptionsToTrace = Throwable.class 一般用不到
+     * exceptionsToIgnore = Throwable.class
+     */
     @SentinelResource(value = "doSomeThing", entryType = EntryType.IN,
-            blockHandler = "exceptionHandler", fallback = "fallbackHandler")
+            blockHandler = "blockHandler", fallback = "fallbackHandler", exceptionsToTrace = RuntimeException.class)
     public String lazySay(String some) {
         DegradeRule degradeRule = new DegradeRule();
         System.out.println(degradeRule.toString());
@@ -27,7 +31,7 @@ public class SentinelService {
     }
 
     // 限流与阻塞处理
-    public String exceptionHandler(String some, BlockException ex) {
+    public String blockHandler(String some, BlockException ex) {
         return  "blockHandler：" + some + ex;
     }
 
