@@ -1,0 +1,18 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaRegister:zhangshuai@peer1:1112/eureka/,http://eurekaRegister:zhangshuai@peer2:1113/eureka/
+
+spring:
+  application:
+    name: hystrix-dashboard
+
+server:
+  port: 1120
+
+management:
+  endpoints:
+    web:
+      exposure:
+        #暴露hystrix监控端点
+        include: 'hystrix.stream'

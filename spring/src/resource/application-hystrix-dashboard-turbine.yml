@@ -1,0 +1,19 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaRegister:zhangshuai@peer1:1112/eureka/,http://eurekaRegister:zhangshuai@peer2:1113/eureka/
+
+spring:
+  application:
+    name: turbine-service
+
+turbine:
+  # 指定需要收集信息的服务名称
+  app-config: hystrix-dashboard
+  # 指定服务所属集群
+  cluster-name-expression: new String('default')
+  # 以主机名和端口号区分服务
+  combine-host-port: true
+
+server:
+  port: 1121
