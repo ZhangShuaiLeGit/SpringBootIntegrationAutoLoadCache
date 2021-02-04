@@ -12,8 +12,8 @@ eureka:
 #    metadataMap:
 #      zone: default
   client:
-    fetch-registry: true
-    register-with-eureka: true
+    fetch-registry: false
+    register-with-eureka: false
     healthcheck:
       enable: true
     serviceUrl:
